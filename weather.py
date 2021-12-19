@@ -5,19 +5,19 @@ import requests
 api_key = "d36d0dfdf07499efb48dbb4f1217d7bc"
 
 #base_url variable to store url
-base_url = "api.openweathermap.org/data/2.5/forecast?"
+base_url = "http://api.openweathermap.org/data/2.5/forecast?"
 
 #User inputs city name
 city_name = input("Please enter city name: ")
 
 #complete_url variable to store complete url address
 complete_url = base_url + "q=" + city_name + "&appid=" + api_key
-
 response = requests.get(complete_url)
+
 #checking the status code of the request
 if response == requests.get(complete_url):
     #getting data in requests module
-    data = response.requests()
+    data = response.json()
     #getting the main dict block
     main = data['main']
     #getting temperature
